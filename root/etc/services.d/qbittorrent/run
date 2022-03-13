@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+WEBUI_PORT=${WEBUI_PORT:-8080}
+
+exec \
+	s6-setuidgid abc \
+	qbittorrent-nox \
+	--webui-port="${WEBUI_PORT}"
