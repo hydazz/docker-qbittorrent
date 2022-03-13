@@ -1,10 +1,10 @@
-## docker-qbittorrent-vpn
+## docker-qbittorrent
 
-[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/qbittorrent-vpn) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/qbittorrent-vpn?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-qbittorrent-vpn/actions?query=workflow%3A"Auto+Builder+CI")
+[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/qbittorrent) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/qbittorrent?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-qbittorrent/actions?query=workflow%3A"Auto+Builder+CI")
 
 **This is an unofficial image that has been modified for my own needs. If my needs match your needs, feel free to use this image at your own risk.**
 
-Fork of [guillaumedsde/alpine-qbittorrent-openvpn](https://github.com/guillaumedsde/alpine-qbittorrent-openvpn)
+Fork of [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent)
 
 [qBittorrent](https://www.qbittorrent.org/) is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
 
@@ -14,31 +14,17 @@ It aims to be a good alternative to all other bittorrent clients out there. qBit
 
 ```bash
 docker run -d \
-  --name=qbittorrent-vpn \
+  --name=qbittorrent \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Australia/Melbourne \
-  -e OPENVPN_USERNAME= #optional \
-  -e OPENVPN_PASSWORD= #optional \
-  -e LAN= #optional \
-  -e DNS= #optional \
   -v <path to appdata>:/config \
   -v <path to downloads>:/downloads \
-  --cap-add=NET_ADMIN \
   --restart unless-stopped \
-  vcxpz/qbittorrent-vpn
+  vcxpz/qbittorrent
 ```
 
 [![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/qbittorrent.xml)
-
-## Environment Variables
-
-Name               | Description                                                                              | Default Value
------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------
-`OPENVPN_USERNAME` | The accompying username for the OpenVPN config.                                          | No default, username must be manually set in `/config/credentials.txt`
-`OPENVPN_PASSWORD` | The accompying password for the OpenVPN config.                                          | No default, password must be manually set in `/config/credentials.txt`
-`LAN`              | Set this to the LAN subnet of the host. Leaving this default should work for most setups | `192.168.0.0/16`
-`DNS`              | DNS server the container will use.                                                       | `1.1.1.1`
 
 ## Upgrading qBittorrent
 
