@@ -4,7 +4,7 @@
 
 **This is an unofficial image that has been modified for my own needs. If my needs match your needs, feel free to use this image at your own risk.**
 
-Fork of [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent) (Equivalent to 4.4.2-r5-ls193)
+Fork of [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent) (Equivalent to 4.4.3.1-r1-ls206)
 
 [qBittorrent](https://www.qbittorrent.org/) is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
 
